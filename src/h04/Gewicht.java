@@ -3,7 +3,7 @@ package h04;
 import java.applet.Applet;
 import java.awt.*;
 
-public class gewicht extends Applet {
+public class Gewicht extends Applet {
 
     public void init() {
     }
