@@ -11,7 +11,7 @@ public class Tekenen extends Applet {
     public void paint(Graphics g) {
         setBackground(Color.blue);
         g.setColor(Color.yellow);
-        g.drawRect(20, 20, 100, 50);
+        g.drawRoundRect(20, 20, 100, 50, 10, 10);
         g.fillRect(20, 80, 100, 50);
     }
 }
