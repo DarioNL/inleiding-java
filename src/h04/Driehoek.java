@@ -3,7 +3,7 @@ package h04;
 import java.awt.*;
 import java.applet.*;
 
-public class Tekenen extends Applet {
+public class Driehoek extends Applet {
 
     public void init() {
     }
@@ -11,7 +11,7 @@ public class Tekenen extends Applet {
     public void paint(Graphics g) {
         setBackground(Color.blue);
         g.setColor(Color.yellow);
-        g.drawRoundRect(20, 20, 100, 50, 10, 10);
-        g.fillRect(20, 80, 100, 50);
+        g.drawPolygon(new int[] {10, 20, 30}, new int[] {100, 20, 100}, 3);
+
     }
 }
