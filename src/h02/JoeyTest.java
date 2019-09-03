@@ -7,12 +7,14 @@ public class JoeyTest extends Applet {
 
     @Override
     public void init() {
-        setBackground(Color.BLACK);
+        setBackground(Color.BLUE);
     }
 
     @Override
     public void paint(Graphics g) {
       g.setColor(Color.yellow);
-      g.drawString("Welcome to java!!", 50, 60);
+      g.drawString("Dario", 50, 60);
+      g.setColor(Color.RED);
+      g.drawString("Ponzo", 50, 70);
     }
 }
