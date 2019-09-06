@@ -10,9 +10,9 @@ public class PraktijkOpdracht extends Applet {
 
     @Override
     public void init() {
-        gemiddelde1= 5.9;
-        gemiddelde2= 6.3;
-        gemiddelde3= 6.9;
+        gemiddelde1 = 5.9;
+        gemiddelde2 = 6.3;
+        gemiddelde3 = 6.9;
 
         deel=3;
 
@@ -22,7 +22,7 @@ public class PraktijkOpdracht extends Applet {
         antwoordint = (int) antwoord2;
         antwoord3 = antwoordint;
 
-        antwoord4= antwoord3 /10;
+        antwoord4 = antwoord3 /10;
 
 
 
