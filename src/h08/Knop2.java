@@ -1,11 +1,12 @@
 package h08;
 
+import java.applet.Applet;
 import java.awt.*;
-import java.applet.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class Knop extends Applet {
+public class Knop2 extends Applet {
     Button Knop;
     Button Knop2;
     TextField tekstvak;

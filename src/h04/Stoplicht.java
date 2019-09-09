@@ -17,7 +17,6 @@ public class Stoplicht extends Applet {
         g.setColor(Color.YELLOW);
         g.fillRoundRect(160, 195, 75, 75, 100, 200);
         g.setColor(Color.GREEN);
-        g.fillRoundRect(160, 280, 75, 75, 100, 200);
     }
 
 
