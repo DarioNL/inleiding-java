@@ -14,7 +14,7 @@ public class Maand extends Applet {
 
     public void init() {
         tekstvak = new TextField("", 20);
-        label = new Label("Type het dagnummer en druk op enter");
+        label = new Label("Typ het nummer van de maand en druk op enter");
         tekstvak.addActionListener( new TekstvakListener() );
         tekst = "";
         add(label);
@@ -22,7 +22,7 @@ public class Maand extends Applet {
     }
 
     public void paint(Graphics g) {
-        g.drawString(tekst, 50, 60 );
+        g.drawString(tekst, 50, 70 );
     }
 
     class TekstvakListener implements ActionListener {
@@ -30,41 +30,41 @@ public class Maand extends Applet {
             s = tekstvak.getText();
             maand = Integer.parseInt( s);
             switch(maand) {
-                case januari:
-                    tekst = "januari";
+                case 1:
+                    tekst = "januari heeft 31 dagen";
                     break;
-                case feberuari:
-                    tekst = "maandag";
+                case 2:
+                    tekst = "feberuari heeft 28 dagen";
                     break;
-                case maart:
-                    tekst = "dinsdag";
+                case 3:
+                    tekst = "maart heeft 31 dagen";
                     break;
-                case april:
-                    tekst = "woensdag";
+                case 4:
+                    tekst = "april heeft 30 dagen";
                     break;
-                case mei:
-                    tekst = "donderdag";
+                case 5:
+                    tekst = "mei heeft 31 dagen";
                     break;
-                case juni:
-                    tekst = "vrijdag";
+                case 6:
+                    tekst = "juni heeft 30 dagen";
                     break;
-                case juli:
-                    tekst = "zaterdag";
+                case 7:
+                    tekst = "juli heeft 31 dagen";
                     break;
-                case augustus:
-                    tekst = "zaterdag";
+                case 8:
+                    tekst = "augustus heeft 31 dagen";
                     break;
-                case september:
-                    tekst = "zaterdag";
+                case 9:
+                    tekst = "sebtember heeft 30 dagen";
                     break;
-                case oktober:
-                    tekst = "zaterdag";
+                case 10:
+                    tekst = "oktober heeft 31 dagen";
                     break;
-                case november:
-                    tekst = "zaterdag";
+                case 11:
+                    tekst = "november heeft 30 dagen";
                     break;
-                case december:
-                    tekst = "zaterdag";
+                case 12:
+                    tekst = "december heeft 31 dagen";
                     break;
                 default:
                     tekst = "U hebt een verkeerd nummer ingetikt ..!";
