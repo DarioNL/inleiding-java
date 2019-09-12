@@ -3,9 +3,7 @@ package h11;
 import java.applet.Applet;
 import java.awt.*;
 
-public class TafelVanDrie extends Applet {
-    int drie;
-    int som;
+public class Vierkanten extends Applet {
 
     public void init() {
     }
@@ -13,14 +11,14 @@ public class TafelVanDrie extends Applet {
     public void paint(Graphics g) {
         int teller = 1;
         int y = 0;
+        int x = 0;
 
 
 
-        while(teller < 11) {
+        while(teller < 6) {
             y += 20;
-            drie = 3 ;
-            som = drie*teller;
-            g.drawString("3x" + teller + "= " + som, 10, y );
+            x += 20;
+            g.drawRect(x, y,20,20);
 
 
             teller++;
