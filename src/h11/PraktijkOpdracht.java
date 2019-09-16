@@ -2,86 +2,130 @@ package h11;
 
 import java.applet.Applet;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 public class PraktijkOpdracht extends Applet {
-    TextField tekstvak;
-    Label label;
-    String s, tekst;
-    int tafel;
+    int één;
+    int twee;
     int drie;
+    int vier;
+    int vijf;
+    int zes;
+    int zeven;
+    int acht;
+    int negen;
+    int tien;
     int som;
+    String s1, s2, s3, s4, s5, s6, s7, s8, s9,s10;
 
 
     public void init() {
-        tekstvak = new TextField("", 20);
-        label = new Label("typ uw cijfer hier");
-        add(tekstvak);
-        tekstvak.addActionListener( new TekstvakListener() );
-        tekst = "";
-        add(label);
-        add(tekstvak);
-        drie = 3;
     }
 
     public void paint(Graphics g) {
-        g.drawString(tekst, 50, 70 );
-    }
-    int teller = 1;
-    int y = 0;
-    int x = 10;
-    class TekstvakListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
-                tafel = Integer.parseInt( s);
-                switch(tafel) {
-                    case 1:
-                        tekst = "slecht";
-                        break;
-                    case 2:
-                        tekst = "slecht";
-                        break;
-                    case 3:
-                        while(teller < 11) {
-                            y += 20;
-                            drie = 3 ;
-                            som = drie*teller;
-                           tekst= ("3x" + teller + "= " + som);
+        int teller = 1;
+        int y = 0;
 
 
-                            teller++;
-                        }
-                        break;
-                    case 4:
-                        tekst = "onvoldoende";
-                        break;
-                    case 5:
-                        tekst = "matig";
-                        break;
-                    case 6:
-                        tekst = "voldoende";
-                        break;
-                    case 7:
-                        tekst = "voldoende";
-                        break;
-                    case 8:
-                        tekst = "goed";
-                        break;
-                    case 9:
-                        tekst = "goed";
-                        break;
-                    case 10:
-                        tekst = "goed";
-                        break;
-                    default:
-                        tekst = "U hebt een verkeerde tafel getypt kies een cijfer tussen de 1 en de 10 ..!";
-                        break;
-                }
-                repaint();
 
+        while(teller < 11) {
+            y += 20;
+            één = 1 ;
+            som = één*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
         }
+
+        while(teller < 11) {
+            y += 20;
+            twee = 2 ;
+            som = twee*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            drie = 3 ;
+            som = drie*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            vier = 4 ;
+            som = vier*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            vijf = 5 ;
+            som = vijf*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            zes = 6 ;
+            som = drie*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            zeven = 7 ;
+            som = zeven*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            acht = 8 ;
+            som = acht*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            negen = 9 ;
+            som = negen*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
+        while(teller < 11) {
+            y += 20;
+            tien = 10 ;
+            som = tien*teller;
+            g.drawString("3x" + teller + "= " + som, 10, y );
+
+
+            teller++;
+        }
+
     }
 }
-

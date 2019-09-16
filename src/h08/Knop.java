@@ -51,7 +51,7 @@ public class Knop extends Applet {
     }
 
 
-    class knoplisterner implements ActionListener {
+    public class knoplisterner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Knop.toString();

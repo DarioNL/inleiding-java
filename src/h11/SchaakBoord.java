@@ -51,7 +51,11 @@ public class SchaakBoord extends Applet {
                 }
                 x += breedte;
                 teller++;
+
+
             }
+
+
         }
     }
 }

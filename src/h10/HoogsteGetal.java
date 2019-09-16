@@ -26,6 +26,7 @@ public class HoogsteGetal extends Applet {
     }
 
     public void paint(Graphics g) {
+
         g.drawString(tekst, 50, 45 );
     }
 
