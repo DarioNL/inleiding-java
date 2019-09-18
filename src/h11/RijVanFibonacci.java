@@ -27,7 +27,7 @@ public class RijVanFibonacci extends Applet {
         int y = 0;
 
 
-        for ( i = 0; 1 < 10; i++) {
+        for ( i = 0; i < 20; i++) {
 
             y+=20;
             g.drawString("" + som, 10, y);

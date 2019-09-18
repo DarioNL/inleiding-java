@@ -20,13 +20,19 @@ public class Muur extends Applet {
         int y2 = y1+10;
 
         g.drawRect(x1, y1, width, heigth);
-        g.setColor(Color.WHITE);
+        g.setColor(Color.black);
         g.drawRect(x1, y1, width2, heigth2);
-        g.drawLine(x2, y2, width2, heigth2);
+        g.drawLine(x1, y2, x1+width, y2);
         g.setColor(Color.RED);
-        g.fillRect(x1, y1, width2, heigth2);
-        g.fillRect(x2, y1, width2, heigth2);
+        g.fillRect(x1, y1, width, heigth);
 
+        g.setColor(Color.BLACK);
+        for (int kolom = 0; kolom < 9; kolom++){
+            g.drawLine(x1, y2+heigth2*kolom, x1+width, y2+heigth2*kolom);
+        }
+        for (int kolom = 0; kolom < 10; kolom++){
+            g.drawLine(x1+width2*kolom, y1, x1+width2*kolom, y1+heigth);
+        }
     }
 }
 

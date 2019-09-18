@@ -1,5 +1,7 @@
 package h12;
 
+import com.sun.prism.PixelFormat;
+
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,24 +15,24 @@ public class Array extends Applet {
     String s;
     Label label;
 
-    double cijfer[];
 
 
     public void init() {
-        for (int teller = 0; teller < 26; teller++)
-        cijfer = new double [25];
-        knop = new Button("ok");
+
+        for (int teller = 0; teller < 26; teller++){
+            knop = new Button("ok");
         label = new Label("");
         add(knop);
-        int teller = 0;
-        cijfer[teller] = 0 * teller + 100;
-        teller++;
+        }
+
     }
 
 
     @Override
     public void paint(Graphics g) {
-        }
+
+
+    }
     }
 
 
