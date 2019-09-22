@@ -1,58 +1,43 @@
 package h12;
 
+import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 
 public class TekstVakTwee extends Applet {
-    double[] volgorde;
-    TextField tekstvak;
     Label label;
-    String tekst;
-    String tekst2;
-    String tekst3;
-    String tekst4;
-    String tekst5;
-    String tekst6;
-    String tekst7;
-    String tekst8;
-    String tekst9;
-    String tekst10;
+    TextField[] tekstvakken;
+    int[] getallen;
     Button knop;
-    double getal, getal2, getal3, getal4, getal5, antwoord;
 
     public void init() {
 
         setSize(500,500);
-        for (int teller = 0; teller < 5; teller++){
-        tekstvak = new TextField("", 5);
-        tekst = ""+tekst;
-
-
-
-
-        label = new Label("");
-
-        add( label );
-        add( tekstvak );
-        getal2 = getal;
-        }
+        tekstvakken = new TextField[5];
+        getallen = new int[5];
         knop = new Button("ok");
-        label = new Label("");
+        knoplisterner kl = new knoplisterner();
+        knop.addActionListener( kl );
         add(knop);
 
 
 
 
+        label = new Label("");
 
-        volgorde = new double[5];
-        volgorde[0] = getal;
-        volgorde[1] = getal2;
-        volgorde[2] = getal3;
-        volgorde[3] = getal4;
-        volgorde[4] = getal5;
+
+
+
+
+
+        for (int i = 0; i < tekstvakken.length; i++) {
+            tekstvakken[i] = new TextField("",7);
+            add(tekstvakken[i]);
+        }
 
     }
 
@@ -61,26 +46,24 @@ public class TekstVakTwee extends Applet {
         g.drawString("", 50, 45 );
     }
 
+
+
+
     class knoplisterner implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            String s;
-            s = tekstvak.getText();
-            getal = Double.parseDouble( s );
+        public void actionPerformed(ActionEvent e){
+            for (int j = 0; j < getallen.length; j++) {
+                getallen[j] = Integer.parseInt(tekstvakken[j].getText());
+            }
 
-            if (getal>getal2){
-                getal = getal2;
+
+            Arrays.sort(getallen);
+
+
+            for (int i = 0; i < tekstvakken.length; i++) {
+                tekstvakken[i].setText("" + (getallen[i]));
             }
-            if (getal2>getal3){
-                getal2 = getal3;
-            }
-            if (getal3>getal4){
-                getal3 = getal4;
-            }
-            if (getal4>getal5){
-                getal4 = getal5;
-            }
-            repaint();
+
         }
     }
 }

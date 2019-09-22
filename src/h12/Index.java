@@ -8,8 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Index extends Applet {
     TextField tekstvak;
-    boolean gevonden;
-    double[] waarde = { 100.0, 200.0, 500.0, 400.0, 300.0 };
+    int[] getallen = {55, 44, 58, 102, 23, 37, 31, 52, 17};
     double gezocht,getal;
     Button knop;
     Label label;
@@ -17,12 +16,6 @@ public class Index extends Applet {
 
     public void init() {
         setSize(500,500);
-        waarde = new double[5];
-        waarde[0] = 100;
-        waarde[1] = 200;
-        waarde[2] = 300;
-        waarde[3] = 400;
-        waarde[4] = 500;
 
         tekstvak = new TextField("", 30);
         knop = new Button("Ok");
@@ -30,39 +23,36 @@ public class Index extends Applet {
         add(tekstvak);
         add(knop);
 
-        gezocht = 400;
-        gevonden = false;
-        int teller = 0;
-        while(teller < waarde.length) {
-            if(waarde[teller] == gezocht) {
-                gevonden = true;
-            }
-            teller ++;
-        }
+    }
+
+    public void paint(Graphics g) {
+        g.drawString(tekst, 50, 60);
     }
 
 
     class KnopListener implements ActionListener	{
         public void actionPerformed( ActionEvent e ) {
-            String s;
-            s = tekstvak.getText();
-            getal = Double.parseDouble( s );
-            for (int i = 0; i<5; i++ ) {
-                if (getal == waarde[i++]){
-                tekst ="De waarde is" + waarde[i++];
-
-                }else{
-                    tekst = "De waarde is onjuist";
+            int invoer = Integer.parseInt(tekstvak.getText());
+            boolean isgevonden = false;
+            int index = 0;
+            for (int i = 0; i < getallen.length; i++){
+                if (getallen[i] == invoer) {
+                    isgevonden = true;
+                    index = i;
                 }
-            }
 
 
+                if (isgevonden) {
+                    tekst = "Is gevonden. Index is " + index;
+                }
+                else {
+                    tekst = "Is niet gevonden";
+                }
+                repaint();
         }
     }
 
-    public void paint(Graphics g) {
-        g.drawString("" + tekst, 50, 20);
-        repaint();
+
     }
 }
 
