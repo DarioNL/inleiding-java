@@ -9,34 +9,45 @@ import java.util.Arrays;
 
 public class PraktijkOpdracht extends Applet {
     Label label;
-    TextField[] tekstvakken;
+    TextField tekstvakNaam;
+    TextField tekstvakTelefoon;
     int[] getallen;
     Button knop;
+    Label naam;
+    Label telefoon;
+    String[] naam2;
+    String naam3, nummer;
+    boolean eisen;
+    int j;
 
     public void init() {
 
         setSize(500,500);
-        tekstvakken = new TextField[5];
-        getallen = new int[5];
+        tekstvakNaam =new TextField(20);
+        tekstvakTelefoon = new TextField("" + 20);
+
+        naam = new Label("vul hier de naam in");
+        telefoon = new Label("vul hier het telefoon nummer in");
+
         knop = new Button("ok");
         knoplisterner kl = new knoplisterner();
         knop.addActionListener( kl );
         add(knop);
+        tekstvakNaam.addActionListener(kl);
+        tekstvakTelefoon.addActionListener(kl);
+        int j;
 
 
 
 
-        label = new Label("");
+        naam2 = new String[10];
 
 
 
 
 
 
-        for (int i = 0; i < tekstvakken.length; i++) {
-            tekstvakken[i] = new TextField("",7);
-            add(tekstvakken[i]);
-        }
+
 
     }
 
@@ -51,17 +62,26 @@ public class PraktijkOpdracht extends Applet {
     class knoplisterner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e){
-            for (int j = 0; j < getallen.length; j++) {
-                getallen[j] = Integer.parseInt(tekstvakken[j].getText());
+            naam3 = tekstvakNaam.getText().toLowerCase();
+            nummer = tekstvakTelefoon.getText();
+
+
+            if (j < naam2.length) {
+                naam2[j] ="Naam" + naam3 +     "Telefoon Nummer: " + nummer;
+                j++;
+
+                if (j == naam2.length) {
+                    eisen = true;
+                }
             }
 
 
-            Arrays.sort(getallen);
 
+            if (eisen) {
+            Arrays.sort(naam2);
+            repaint();
+        }
 
-            for (int i = 0; i < tekstvakken.length; i++) {
-                tekstvakken[i].setText("" + (getallen[i]));
-            }
 
         }
     }
