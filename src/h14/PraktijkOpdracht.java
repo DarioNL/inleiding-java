@@ -7,24 +7,25 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class PraktijkOpdracht extends Applet {
-    Button Knoph14;
-    String som, tekst;
+    Button Knoph14, startknop;
+    String som, tekst, tekst2;
     TextField tekstvak;
-    int aantalVlaggen, aantalvlaggencomputer, getal, win;
+    int aantalVlaggen, aantalvlaggencomputer, getal, aantalVlaggen2;
     private Image afbeelding;
     private URL pad;
 
     public void init() {
-        setSize(400, 400);
+        setSize(500, 400);
         aantalVlaggen = 23;
-        pad = PraktijkOpdracht.class.getResource("/resources/");
-        afbeelding = getImage(pad, "23.jpg");
+        aantalVlaggen2 = 23;
         tekstvak = new TextField("typ 1, 2 of 3");
-        add(tekstvak);
         Knoph14 = new Button("speel");
         Knoph14listerner kl = new Knoph14listerner();
-        Knoph14.addActionListener(kl);
-        add(Knoph14);
+
+        startknop = new Button("start spel");
+        startknoplisterner kl2 = new startknoplisterner();
+        startknop.addActionListener(kl2);
+        add(startknop);
 
     }
 
@@ -35,7 +36,8 @@ public class PraktijkOpdracht extends Applet {
         int x2 = 0;
         g.drawString("De computer heeft " + som + " vlaggen weggehaalt", x, y);
         g.drawString("aantal resterende vlaggen: " + aantalVlaggen + " Jouw beurt", x, y + 20);
-        g.drawString(tekst, y, x);
+        g.drawString(tekst, y, x-10);
+        g.drawString(tekst2, y, x);
         for (int i = 0; i < aantalVlaggen; i++) {
             if (i % 4 == 0) {
                 x2 = 40;
@@ -46,71 +48,115 @@ public class PraktijkOpdracht extends Applet {
         }
     }
 
+    class startknoplisterner implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+
+            pad = PraktijkOpdracht.class.getResource("/resources/");
+            afbeelding = getImage(pad, "23.jpg");
+
+            remove(startknop);
+
+            add(tekstvak);
+
+
+            Knoph14.addActionListener(new Knoph14listerner());
+            add(Knoph14);
+
+            setSize(501, 400);
+            setSize(500, 400);
+        }
+    }
+
+
     class Knoph14listerner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             double RandomGetal = Math.random();
             int random = (int) (RandomGetal * 3 + 1);
             String s;
-            //wat heeft gebruiker ingevuld?
+
             s = tekstvak.getText();
-            // converteer naar int
+
             getal = Integer.parseInt( s );
-            //check of invoer geldig is (1, 2, of 3)
-            if (getal < 4 ) {
-                aantalVlaggen = aantalVlaggen-getal;
-                repaint();
-            }
-            else {
-                 tekst = "wat u heeft getypt is niet geldig";
-                repaint();
-            }
 
-            if ( getal < 1 ) {
-                tekst = "wat u heeft getypt is niet geldig.";
-                repaint();
-            }
-
-
-            if (aantalVlaggen==1) {
-                tekst = "je hebt gewonnen";
-                repaint();
-            }
-            if ( aantalVlaggen < 1 ) {
-                tekst = "Je hebt veloren.";
+            if (getal > 3) {
+                tekst = "wat u heeft getypt is niet geldig";
                 repaint();
             }
             else {
                 tekst = "";
                 repaint();
             }
+                if (0 > getal) {
+                    tekst = "wat u heeft getypt is niet geldig";
+                    repaint();
+                }
+                else {
+                    tekst = "";
+                    repaint();
+                }
 
 
-            if (aantalVlaggen > 21) {
-                aantalvlaggencomputer = aantalVlaggen - 21;
-            } else if (aantalVlaggen == 21) {
-                aantalvlaggencomputer = random;
-            } else if (aantalVlaggen > 17) {
-                aantalvlaggencomputer = aantalVlaggen -17;
-            } else if (aantalVlaggen == 17) {
-                aantalvlaggencomputer = random;
-            } else if (aantalVlaggen > 13) {
-                aantalvlaggencomputer = aantalVlaggen -13;
-            } else if (aantalVlaggen == 13) {
-                aantalvlaggencomputer = random;
-            }else if (aantalVlaggen > 9) {
-                aantalvlaggencomputer = aantalVlaggen -9;
-            } else if (aantalVlaggen == 9) {
-                aantalvlaggencomputer = random;
-            }else if (aantalVlaggen > 5) {
-                aantalvlaggencomputer = aantalVlaggen -5;
-            } else if (aantalVlaggen == 5) {
-                aantalvlaggencomputer = random;
-            }else if (aantalVlaggen > 1) {
-                aantalvlaggencomputer = aantalVlaggen -1;
-            } else if (aantalVlaggen == 1) {
-                aantalvlaggencomputer = random;
-            }
+                    if (getal < 4) {
+                        if (getal > 0) {
+
+
+                            if (aantalVlaggen < 1) {
+                                tekst2 = "je hebt gewonnen";
+                                repaint();
+                            } else {
+                                if (aantalVlaggen == 1) {
+                                    tekst2 = "Je hebt veloren.";
+                                    repaint();
+                                } else {
+                                    aantalVlaggen = aantalVlaggen - getal;
+                                    if (aantalVlaggen > 21) {
+                                        aantalvlaggencomputer = aantalVlaggen - 21;
+                                    } else if (aantalVlaggen == 21) {
+                                        aantalvlaggencomputer = random;
+                                    } else if (aantalVlaggen > 17) {
+                                        aantalvlaggencomputer = aantalVlaggen - 17;
+                                    } else if (aantalVlaggen == 17) {
+                                        aantalvlaggencomputer = random;
+                                    } else if (aantalVlaggen > 13) {
+                                        aantalvlaggencomputer = aantalVlaggen - 13;
+                                    } else if (aantalVlaggen == 13) {
+                                        aantalvlaggencomputer = random;
+                                    } else if (aantalVlaggen > 9) {
+                                        aantalvlaggencomputer = aantalVlaggen - 9;
+                                    } else if (aantalVlaggen == 9) {
+                                        aantalvlaggencomputer = random;
+                                    } else if (aantalVlaggen > 5) {
+                                        aantalvlaggencomputer = aantalVlaggen - 5;
+                                    } else if (aantalVlaggen == 5) {
+                                        aantalvlaggencomputer = random;
+                                    } else if (aantalVlaggen > 1) {
+                                        aantalvlaggencomputer = aantalVlaggen - 1;
+                                    } else if (aantalVlaggen == 1) {
+                                        aantalvlaggencomputer = random;
+
+                                        repaint();
+                                    }
+                                    repaint();
+                                }
+                            }
+                        }
+
+
+
+                }
+                repaint();
+
+
+
+
+
+
+
+
+
+
 
             aantalVlaggen= aantalVlaggen-aantalvlaggencomputer;
             repaint();
@@ -120,15 +166,6 @@ public class PraktijkOpdracht extends Applet {
 
 
 
-            // Als geldig
-
-            // trek invoer van aantal vlaggen af
-
-            // check of gebruiker gewonnen heeft
-
-            // check of gebruiker verloren
-
-            // beurt computer
 
 
 
